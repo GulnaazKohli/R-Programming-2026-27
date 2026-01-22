@@ -1,0 +1,35 @@
+# grammar of elevated graphics (advanced graphics in R)
+# 3 steps - object of a graph(ggplot), animation technique (gganimate,plotly,rgl,rgl3d), renderer(gifski, magick)
+
+x<-1:26
+y<-log(x)
+z<-LETTERS[1:26]
+today<-data.frame(x, y,z)
+
+install.packages("gganimate")
+install.packages("gifski")
+library(ggplot2)
+library(gganimate)
+library(gifski)
+# step 1
+p<-ggplot(data=today)
+p<-p+aes(x=x, y=y)
+p<-p+geom_point(size=x, alpha=0.5)
+# step 2
+ani_p<-p+transition_manual(x, cumulative=TRUE)
+# step 3
+c<-animate(ani_p, nframes=100, fps=5, renderer=gifski_renderer())
+
+#task - 
+setwd("/Users/gulnaazkohli/Desktop")
+data<-read.csv("2O Jan Task CSV.csv")
+colnames(data) <- trimws(colnames(data))
+library(ggplot2)
+library(gganimate)
+library(gifski)
+p<-ggplot(data, aes(x = inflation, y = gdp, size = population)) +
+  geom_point(alpha = 0.5) 
+ani_p<- p + transition_manual(population, cumulative = TRUE)
+c<-animate(ani_p,renderer = gifski_renderer())
+
+ 
