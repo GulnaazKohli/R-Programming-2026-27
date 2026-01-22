@@ -1,0 +1,29 @@
+x<-5     # gen object x 
+x
+print(x)
+6->y
+print(y)
+z=1:100
+seq(1,100,5)
+seq(5,800,100)
+ls()
+rm(x)
+ls()
+rm(list=ls())
+ls()
+x=c(1,2,5,7) #combined object 
+y=c("a", "b", "c", "d", "e")
+print(y)
+m=matrix(c(1,2,3,4),ncol=2)
+print(m)
+m=matrix(c(1,2,3,4),nrow=2)
+print(m)
+n=matrix(c(5,10,9,6,3,4,2,0,11),ncol=3, nrow=3)
+print(n)
+n=matrix(c(20,30,40,12,9,6),ncol=3)
+print(n)
+n1=t(n)
+print(n1)
+p=function(x){x^2}
+print(p)
+b=p(a)
