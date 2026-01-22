@@ -1,0 +1,35 @@
+x<-6
+x<-1:10
+x<-c(1,5,"a")
+x<-matrix(c(1,2,3,4,5,6),nrow=2)
+f<-function(x){x^3}
+a<--15;15
+b<-f(a)
+plot(a,b)
+rm(list(ls()))
+
+x<-c(1,4,5,6)
+y<-c("a", "b", "c", "d")
+data1<-data.frame(x,y)
+data1<-data.frame(gdp=x, inflation=y)
+b<-data1$gdp
+
+x<-c(1,4,54,34,24,134,3434,22,44,17,86,454,866)
+y<-c(3,55,56,886,45,7,78,457,905,454,464,345,435)
+data2<-data.frame(x,y)
+plot(data2$x, data2$y)
+
+a<-c(-5,4,12,17,19)
+f<-function(x){x^5}
+b<-f(a)
+plot(a,b)
+
+getwd()
+setwd("/Users/gulnaazkohli/Desktop")
+data22<-read.csv("15 jan csv sample  2.csv")
+data22
+
+age<-data22$age
+gender<-data22$gender 
+grade<-data22$grade
+plot(age, grade)
