@@ -1,0 +1,30 @@
+x<-c(19,16,18,20,21)
+edit(x)
+y<-c(120,131,1243,100,80)
+z<-c("m","f", "f", "m", "f")
+data1<-data.frame(age=x,income=y, gender=z)
+fix(data1)
+library(ggplot2)
+p1<-ggplot(data=data1)
+p1<-p1+aes(x=age, y=income)
+p1<-p1+geom_point(size=10, alpha=0.1)
+p1<-p1+geom_text(aes(label=gender))
+
+p1<-p1+geom_text(aes(label=gender),position="jitter")
+p1<-p1+geom_text(aes(label=gender),position="nudge")
+
+p1<-ggplot(data=data1)
+p1<-p1+aes(x=age, y=income, color=age)
+p1<-p1+geom_point(color="red")
+p1<-p1+geom_point(size=6, pch=22)
+
+
+#task
+setwd("/Users/gulnaazkohli/Desktop")
+data<-read.csv("21 Jan CSV.csv")
+data
+library(ggplot2)
+p2<-ggplot(data=data)
+p2<-p2+aes(x=Experience ,y=Income ,color=Gender)
+p2<-p2+geom_point(size=10,pch=2)
+p2<-p2+geom_text(aes(label=Income),position="jitter")
