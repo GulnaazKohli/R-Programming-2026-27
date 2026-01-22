@@ -1,0 +1,24 @@
+#ray tracing- r does best 
+# ggplot 2 (grammar of graphics)
+#download a package 
+install.packages("ggplot2") 
+# call a package
+library(ggplot2)
+x<-1:26
+y<-log(x)
+today<-data.frame(x,y)
+plot(x,y)
+#start ggplot2
+p1<-ggplot(data=today)
+p1<-p1+(mapping=aes(x=x, y=y))
+p1<-p1+geom_point()
+
+#task- world bank database 
+setwd("/Users/gulnaazkohli/Desktop")
+gdp_inf<-read.csv("19 Jan World Bank CSV.csv")
+head(gdp_inf)     # first 6 rows
+tail(gdp_inf)     # last 6 rows
+library(ggplot2)
+colnames(gdp_inf) <- trimws(colnames(gdp_inf))
+ggplot(gdp_inf, aes(x = Countries, y = GDP)) +
+  geom_point()
