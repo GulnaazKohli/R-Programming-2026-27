@@ -1,0 +1,20 @@
+#Task 
+getwd()
+setwd("/Users/gulnaazkohli/Desktop")
+data<-read.csv("22 Jan Task 1.csv")
+library(ggplot2)
+library(gganimate)
+library(gifski)
+grph<-ggplot(data=data)
+colnames(data)
+grph<-grph+aes(x=Year, y=Inflation.Rate)	
+grph<-grph+geom_line(linewidth=2,aes(color=Inflation.Rate))
+grph_ani<-grph+transition_reveal(Year)
+animate(grph_ani,renderer=gifski_renderer())
+
+#Variation of Task 
+grph2<-ggplot(data=data)
+grph2<-grph2+aes(x=Year,y=Inflation.Rate)	
+grph2<-grph2+geom_line(linewidth=2,aes(color=Inflation.Rate))+scale_color_gradient(low="pink",high="red")
+grph2_ani<-grph2+transition_reveal(Year)
+animate(grph2_ani,renderer=gifski_renderer())
