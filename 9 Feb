@@ -1,0 +1,16 @@
+data1<-read.csv("/Users/gulnaazkohli/Desktop/NIFTY 50-9-08-2025-to-9-02-2026.csv")
+head(data1)
+tail(data1)
+library(ggplot2)
+data1$time<-as.Date(data1$Date, format="%d-%b-%Y")
+p<-ggplot(data=data1, aes(x=time, y=High))
+p<-p+geom_point(size=2,color="red")
+
+#generate an empty ma_high (NA)
+data1$ma_high<-rep(NA,nrow(data1))
+#for loop
+n<-5
+for (i in 1:(nrow(data1)-n+1)) {
+data1$ma_high[(i+((n-1)/2))]<-mean(data1$High[i:(i+n-1)])
+}
+p<-p+geom_line(aes(x=time, y=ma_high))
