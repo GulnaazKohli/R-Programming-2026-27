@@ -1,0 +1,44 @@
+install.packages("corrplot")
+library(corrplot)
+
+data<- mtcars
+p1<-cor(data)
+corrplot(p1)
+corrplot(p1, method ="number")
+corrplot(p1, method ="square", order="alphabet")
+#simple regression
+model1<- lm(data$mpg~data$wt)
+summary(model1)
+#regression with two independent va
+riables, goodness of fit
+model2<- lm(data$mpg~data$wt+data$am)
+summary(model2)
+#regression through origin, doesn't have intercept value
+model3<- lm(data$mpg~data$wt+data$am-1)
+summary(model3) 
+
+install.packages("rgl")
+install.packages("plot3D")
+install.packages("plot3Drgl")
+library(rgl)
+library(plot3D)
+library(plot3Drgl)
+data<- mtcars
+mpg<- data$mpg
+wt<- data$wt
+am<- data$am
+plot3d(wt, am, mpg, col="red", size=10)
+
+#task- south east asian countries 
+getwd()
+setwd("/Users/gulnaazkohli/Desktop")
+data<-read.csv("16 Feb.csv")
+data1<- data.frame(data$Broad.money.growth, data$GDP.growth, data$Inflation)
+library(corrplot)
+p1<-cor(data1)
+corrplot(p1, method ="square", order="alphabet")
+
+
+
+
+
