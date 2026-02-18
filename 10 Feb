@@ -1,0 +1,29 @@
+#1
+getwd()
+setwd("/Users/gulnaazkohli/Desktop")
+data <-read.csv("ICICI.csv")
+head(data)
+colnames(data)
+# change date time to proper format
+data$DateTime <- as.POSIXct(data$DateTime, format = "%d-%m-%Y %H:%M")
+#2
+purchase_price<-1166
+#3
+data$purchase<-purchase_price
+#4
+data$profit_percent <-NA
+data$strategy <-NA
+#5
+for (i in 1:nrow(data)) {
+  data$profit_percent[i] <- ((data$ICICIBANKEQN[i] - purchase_price) / purchase_price) * 100
+  if (data$profit_percent[i] <= 16.2) {
+    data$strategy[i] <-"Hold"
+  } else {
+    data$strategy[i] <-"Sell"
+  }
+}
+table(data$strategy)
+#6
+library(ggplot2)
+ggplot(data, aes(x = DateTime,y = ICICIBANKEQN,colour = strategy)) +
+geom_point() +labs(title = "ICICI Bank Stock Price with Hold/Sell Strategy", x = "DateTime",y = "Stock Price") 
