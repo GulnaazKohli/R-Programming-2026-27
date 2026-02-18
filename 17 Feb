@@ -1,0 +1,29 @@
+install.packages("skimr")
+library(skimr)
+data<- mtcars
+skim(data)
+table1<- skim(data)
+View(table1)
+#task 
+getwd()
+setwd("/Users/gulnaazkohli/Desktop")
+data<-read.csv("17 Feb.csv")
+library(skimr)
+colnames(data)
+skim(data)
+table2<- skim(data)
+View(table2)
+install.packages("rgl", dependencies = TRUE)
+install.packages('rgl')
+install.packages('plot3D')
+install.packages('plot3Drgl')
+
+library(rgl)
+library(plot3D)
+library(plot3Drgl)
+data1<- data
+vr<- data1$viral.reels
+jv<- data1$job.vacancy
+ai<- data1$AI.prompt
+p<- plot3d(vr, jv, ai, col="red", size=10)
+rglwidget()
